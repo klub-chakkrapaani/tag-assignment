@@ -1,31 +1,29 @@
+export class createTagDto {
+  public name: string;
 
-export class createTagDto{
+  public type: string;
 
-    public name : string;
+  public key: string;
 
-    public type : string;
+  public conditions: [
+    { condition: string; keywords: string | string[]; field: string },
+  ];
 
-    public key : string;
+  public isDynamic: boolean;
 
-    public conditions : [{ condition: string; keywords: string | string[]; field: string; }];
-    
-    public isDynamic : boolean;
+  public resource: string;
 
-    public resource : string;
+  public resourceId: string;
 
-    public resourceId : string;
+  public resourceType: string;
 
-    public resourceType : string;
+  public createdBy: string;
 
-    public createdBy : string;
+  public updatedBy: string;
 
-    public updatedBy : string;
+  public isDeleted: boolean;
 
-    public isDeleted : boolean;
+  public deletedAt: Date;
 
-    public deletedAt : Date;
-
-    public deletedBy : string;
-
-
+  public deletedBy: string;
 }

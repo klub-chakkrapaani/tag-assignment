@@ -1,13 +1,13 @@
-export class FindTagDto{
-    public name ?: string;
+export class FindTagDto {
+  public name?: string;
 
-    public type ?: string;
+  public type?: string;
 
-    public resource ?: string;
+  public resource?: string;
 
-    public resourceType ?: string;
+  public resourceType?: string;
 
-    public resourceId ?: string;
+  public resourceId?: string;
 
-    public isDeleted : boolean;
+  public isDeleted?: boolean;
 }
