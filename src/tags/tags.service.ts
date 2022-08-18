@@ -16,7 +16,7 @@ import { UpdateTagDto } from './dto/updateTag.dto';
 export class TagsService {
   constructor(private readonly tagsRepository: TagsRepository) {}
 
-  public async create(createTagDto: createTagDto): Promise<Tag | {}> {
+  public async create(createTagDto: createTagDto): Promise<Tag> {
     if (!createTagDto.name) {
       throw new HttpException('Enter the name', HttpStatus.BAD_REQUEST);
     }
@@ -47,14 +47,14 @@ export class TagsService {
     }
     return tag[0];
   }
-  public async getTagsByFilter(FindTagDto: FindTagDto): Promise<Tag[] | {}> {
+  public async getTagsByFilter(FindTagDto: FindTagDto): Promise<Tag[]> {
     FindTagDto.isDeleted = false;
     return this.tagsRepository.find(FindTagDto);
   }
   public async updateById(
     id: string,
     UpdateTagDto: UpdateTagDto,
-  ): Promise<Tag | {}> {
+  ): Promise<Tag> {
     if (!ObjectId.isValid(id)) {
       throw new BadRequestException('Invalid object id');
     }

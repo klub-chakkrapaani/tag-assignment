@@ -11,7 +11,7 @@ import { Tag, TagDocument } from './tag.schema';
 export class TagsRepository {
   constructor(@InjectModel(Tag.name) public tagModel: Model<TagDocument>) {}
 
-  public async create(tag: Tag): Promise<Tag | {}> {
+  public async create(tag: Tag): Promise<Tag> {
     try {
       const newTag = new this.tagModel(tag);
       const output = newTag.save();
@@ -20,7 +20,7 @@ export class TagsRepository {
       throw new HttpException(error.mesage, HttpStatus.BAD_REQUEST);
     }
   }
-  public async find(tagFilterQuery: FilterQuery<Tag>): Promise<Tag[] | {}> {
+  public async find(tagFilterQuery: FilterQuery<Tag>): Promise<Tag[]> {
     try {
       Object.keys(tagFilterQuery).forEach(
         (key) =>

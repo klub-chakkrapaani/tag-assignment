@@ -47,7 +47,6 @@ describe('TagsController', () => {
   };
   let app: INestApplication = null;
   let newTagId: string = null;
-  let newTagKey: string = null;
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       imports: [AppModule, HttpModule],
@@ -60,7 +59,6 @@ describe('TagsController', () => {
     const newTag = await createTag(tagBody, app);
     expect(newTag.statusCode).toBe(201);
     expect(newTag.body).toHaveProperty('_id');
-    newTagKey = newTag.body.key;
     newTagId = newTag.body['_id'];
   });
   //  error
